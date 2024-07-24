@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .score {
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Welcome to the Quiz!</h2>
+        <form id="quizForm">
+            <p>Question 1: What is the capital of France?</p>
+            <input type="radio" name="q1" value="Paris"> Paris<br>
+            <input type="radio" name="q1" value="London"> London<br>
+            <input type="radio" name="q1" value="Berlin"> Berlin<br>
+
+            <!-- Add more questions here -->
+            <p>Question 2: Which country is known as the Land of the Rising Sun?</p>
+            <input type="radio" name="q2" value="Japan"> Japan<br>
+            <input type="radio" name="q2" value="China"> China<br>
+            <input type="radio" name="q2" value="India"> India<br>
+
+            <p>Question 3: What is the chemical symbol for water?</p>
+            <input type="radio" name="q3" value="H2O"> H2O<br>
+            <input type="radio" name="q3" value="CO2"> CO2<br>
+            <input type="radio" name="q3" value="NaCl"> NaCl<br>
+
+            <p>Question 4: Who wrote the famous novel "To Kill a Mockingbird"?</p>
+            <input type="radio" name="q4" value="Harper Lee"> Harper Lee<br>
+            <input type="radio" name="q4" value="J.K. Rowling"> J.K. Rowling<br>
+            <input type="radio" name="q4" value="Charles Dickens"> Charles Dickens<br>
+
+            <p>Question 5: What is the chemical symbol for gold?</p>
+            <input type="radio" name="q5" value="Au"> Au<br>
+            <input type="radio" name="q5" value="Ag"> Ag<br>
+            <input type="radio" name="q5" value="Pb"> Pb<br>
+
+            <p>Question 6: Who is credited with inventing the telephone?</p>
+            <input type="radio" name="q6" value="Alexander Graham Bell"> Alexander Graham Bell<br>
+            <input type="radio" name="q6" value="Thomas Edison"> Thomas Edison<br>
+            <input type="radio" name="q6" value="Nikola Tesla"> Nikola Tesla<br>
+
+            <p>Question 7: What is the largest mammal?</p>
+            <input type="radio" name="q7" value="Blue Whale"> Blue Whale<br>
+            <input type="radio" name="q7" value="Elephant"> Elephant<br>
+            <input type="radio" name="q7" value="Giraffe"> Giraffe<br>
+
+            <p>Question 8: Who was the first man to step on the moon?</p>
+            <input type="radio" name="q8" value="Neil Armstrong"> Neil Armstrong<br>
+            <input type="radio" name="q8" value="Buzz Aldrin"> Buzz Aldrin<br>
+            <input type="radio" name="q8" value="Yuri Gagarin"> Yuri Gagarin<br>
+
+            <p>Question 9: What is the currency of Japan?</p>
+            <input type="radio" name="q9" value="Yen"> Yen<br>
+            <input type="radio" name="q9" value="Won"> Won<br>
+            <input type="radio" name="q9" value="Dollar"> Dollar<br>
+
+            <p>Question 10: Who painted the famous painting "Starry Night"?</p>
+            <input type="radio" name="q10" value="Vincent van Gogh"> Vincent van Gogh<br>
+            <input type="radio" name="q10" value="Pablo Picasso"> Pablo Picasso<br>
+            <input type="radio" name="q10" value="Leonardo da Vinci"> Leonardo da Vinci<br>
+
+            <input type="submit" value="Submit">
+        </form>
+        <div id="score" class="score" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var form = event.target;
+            var score = 0;
+
+            // Check answers
+            if (form.q1.value === "Paris") {
+                score += 1;
+            }
+            if (form.q2.value === "Japan") {
+                score += 1;
+            }
+            if (form.q3.value === "H2O") {
+                score += 1;
+            }
+            if (form.q4.value === "Harper Lee") {
+                score += 1;
+            }
+            if (form.q5.value === "Au") {
+                score += 1;
+            }
+            if (form.q6.value === "Alexander Graham Bell") {
+                score += 1;
+            }
+            if (form.q7.value === "Blue Whale") {
+                score += 1;
+            }
+            if (form.q8.value === "Neil Armstrong") {
+                score += 1;
+            }
+            if (form.q9.value === "Yen") {
+                score += 1;
+            }
+            if (form.q10.value === "Vincent van Gogh") {
+                score += 1;
+            }
+
+            // Display score
+            var scoreElement = document.getElementById('score');
+            scoreElement.textContent = 'Your score is: ' + score + ' out of 10';
+            scoreElement.style.display = 'block';
+            scoreElement.scrollIntoView();
+        });
+    </script>
+</body>
+</html>
